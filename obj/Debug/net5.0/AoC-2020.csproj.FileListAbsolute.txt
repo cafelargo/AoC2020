@@ -1,0 +1,16 @@
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\AoC-2020.exe
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\AoC-2020.deps.json
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\AoC-2020.runtimeconfig.json
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\AoC-2020.runtimeconfig.dev.json
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\AoC-2020.dll
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\ref\AoC-2020.dll
+D:\VSC_projects\AoC-2020\bin\Debug\net5.0\AoC-2020.pdb
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.csprojAssemblyReference.cache
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.GeneratedMSBuildEditorConfig.editorconfig
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.AssemblyInfoInputs.cache
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.AssemblyInfo.cs
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.csproj.CoreCompileInputs.cache
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.dll
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\ref\AoC-2020.dll
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.pdb
+D:\VSC_projects\AoC-2020\obj\Debug\net5.0\AoC-2020.genruntimeconfig.cache
