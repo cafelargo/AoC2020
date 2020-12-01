@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VSC_projects\\AoC-2020\\AoC-2020.csproj",
+      "projectUniqueName": "D:\\VSC_projects\\AoC2020\\AoC-2020.csproj",
       "projectName": "AoC-2020",
-      "projectPath": "D:\\VSC_projects\\AoC-2020\\AoC-2020.csproj",
+      "projectPath": "D:\\VSC_projects\\AoC2020\\AoC-2020.csproj",
       "packagesPath": "C:\\Users\\Gary\\.nuget\\packages\\",
-      "outputPath": "D:\\VSC_projects\\AoC-2020\\obj\\",
+      "outputPath": "D:\\VSC_projects\\AoC2020\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gary\\AppData\\Roaming\\NuGet\\NuGet.Config"
