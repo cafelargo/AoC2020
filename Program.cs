@@ -72,7 +72,7 @@ namespace AdventOfCode {
             }
             return product;
         }
-        private static void Main(string[] args)
+        private static void Main1(string[] args)
         {
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
@@ -84,6 +84,143 @@ namespace AdventOfCode {
             Console.WriteLine($"{sum_3_to_2020(intList, topIndex)}");
             watch.Stop();
             Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
+        }
+    }
+    class Day2 {
+        public static string[] add_to_list(string filename)
+        {
+            StreamReader sr = new StreamReader(filename);
+            string fileString = sr.ReadToEnd();
+            string[] wordList = fileString.Split('\n');
+            return wordList;
+        }
+        public static ArrayList[] split_str_array(int listLen, string[] listIn)
+        {
+            ArrayList[] newList = new ArrayList[listLen];
+            int x;
+            string[] tempArr = new string[4];
+            for (x = 0; x < listLen; x++)
+            {
+                ArrayList currentLine = new ArrayList();
+                tempArr = listIn[x].Split(' ','-'); //split each line by the spaces
+                currentLine.Insert(0, int.Parse(tempArr[0]));
+                currentLine.Insert(1, int.Parse(tempArr[1]));
+                currentLine.Insert(2, tempArr[2].ToCharArray()[0]);
+                currentLine.Insert(3, tempArr[3]);
+                newList[x] = currentLine;
+            }
+            return newList;
+        }
+        public static int count_correct1(int listLen, ArrayList[] lineArray)
+        {
+            int count = 0;
+            int x, freq;
+            string pass;
+            char char1;
+            for (x = 0; x < listLen; x++)
+            {
+                freq = 0;
+                pass = (string) lineArray[x][3];
+                char1 = (char) lineArray[x][2];
+                foreach (char y in pass)
+                {
+                    if (y == char1)
+                    {
+                        freq++;
+                    }
+                }
+                if (freq >= (int) lineArray[x][0] && freq <= (int) lineArray[x][1])
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        public static int count_correct2(int listLen, ArrayList[] lineArray)
+        {
+            int count = 0;
+            int x,ind1,ind2;
+            char checkChar;
+            string pass;
+            char temp1, temp2;
+            for (x = 0; x < listLen; x++)
+            {
+                checkChar = (char) lineArray[x][2];
+                pass = (string) lineArray[x][3];
+                ind1 = (int) lineArray[x][0] - 1;
+                ind2 = (int) lineArray[x][1] - 1;
+                temp1 = pass[ind1];
+                temp2 = pass[ind2];
+                if (temp1 == checkChar ^ temp2 == checkChar)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+        private static void Main2(string[] args)
+        {
+            string[] strList = add_to_list("passlist.txt");
+            int listLen = strList.Length;
+            ArrayList[] lineArray = split_str_array(listLen, strList);
+            int count = count_correct1(listLen, lineArray);
+            Console.WriteLine(count);
+            count = count_correct2(listLen, lineArray);
+            Console.WriteLine(count);
+        }
+    }
+    class Day3
+    {
+        public static string[] add_to_list(string filename)
+        {
+            StreamReader sr = new StreamReader(filename);
+            string fileString = sr.ReadToEnd();
+            string[] wordList = fileString.Split('\n');
+            int listLen = wordList.Length;
+            string[] strList = new string[listLen];
+            int x;
+            for (x = 0; x < wordList.Length; x++)
+            {
+                strList[x] = wordList[x];
+            }
+            return strList;
+        }
+        public static int is_tree(int x, int y, string[] tobMap)
+        {
+            int isTree;
+            if ((char) tobMap[y][x] == '#')
+            {
+                isTree = 1;
+            }
+            else
+            {
+                isTree = 0;
+            }
+            return isTree;
+        }
+        public static long iterateThrough(string[] tobMap, int stepx, int stepy)
+        {
+            int x = 0;
+            int y = 0;
+            long count = 0;
+            while (y < tobMap.Length)
+            {
+                x = x % 31;
+                if (is_tree(x, y,tobMap) == 1)
+                {
+                    count++;
+                }
+                y += stepy;
+                x += stepx;
+            }
+            return count;
+        }
+        
+        private static void Main(String[] args)
+        {
+            string[] tobMap = add_to_list("toboggan-map.txt");
+            long product = iterateThrough(tobMap, 1, 1) * iterateThrough(tobMap, 3, 1) * iterateThrough(tobMap, 5, 1) * iterateThrough(tobMap, 7, 1) * iterateThrough(tobMap, 1, 2);
+            Console.Write(product);
         }
     }
 }
