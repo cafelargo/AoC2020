@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
+using System.Globalization;
 
 namespace AdventOfCode {
     class Day1 {
@@ -216,11 +217,40 @@ namespace AdventOfCode {
             return count;
         }
         
-        private static void Main(String[] args)
+        private static void Main3(String[] args)
         {
             string[] tobMap = add_to_list("toboggan-map.txt");
             long product = iterateThrough(tobMap, 1, 1) * iterateThrough(tobMap, 3, 1) * iterateThrough(tobMap, 5, 1) * iterateThrough(tobMap, 7, 1) * iterateThrough(tobMap, 1, 2);
             Console.Write(product);
+        }
+    }
+    class Day4
+    {
+        public static string[] add_to_list(string filename)
+        {
+            StreamReader sr = new StreamReader(filename);
+            string fileString = sr.ReadToEnd();
+            string[] wordList = fileString.Split("\n\r");
+            for (int x = 0; x < wordList.Length; x++)
+            {
+                wordList[x] = wordList[x].Trim();
+            }
+            return wordList;
+        }
+        public static string[,] get_values(string[] wordList)
+        {
+            int listLen = wordList.Length;
+            string[,] valueArray = new string[listLen,16];
+            for (int x = 0; x < listLen; x++)
+            {
+                valueArray[x] = wordList[x].Split(':',' ');
+            }
+            return valueArray;
+        }
+        private static void Main(String[] Args)
+        {
+            string[] fileString = add_to_list("passport.txt");
+            string[,] valueArray = get_values(fileString);
         }
     }
 }
