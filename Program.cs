@@ -237,20 +237,44 @@ namespace AdventOfCode {
             }
             return wordList;
         }
-        public static string[,] get_values(string[] wordList)
+        public static string[][] get_values(string[] wordList)
         {
             int listLen = wordList.Length;
-            string[,] valueArray = new string[listLen,16];
+            string[][] valueArray = new string[listLen][];
             for (int x = 0; x < listLen; x++)
             {
+
                 valueArray[x] = wordList[x].Split(':',' ');
             }
             return valueArray;
         }
+        public static int valid_count(string[][] valueArray)
+        {
+            int count = 0;
+            for (int x = 0; x < valueArray.Length; x++)
+            {
+                if (
+                    Array.IndexOf(valueArray[x], "byr") != -1 &&
+                    Array.IndexOf(valueArray[x], "iyr") != -1 &&
+                    Array.IndexOf(valueArray[x], "eyr") != -1 &&
+                    Array.IndexOf(valueArray[x], "hgt") != -1 &&
+                    Array.IndexOf(valueArray[x], "hcl") != -1 &&
+                    Array.IndexOf(valueArray[x], "ecl") != -1 &&
+                    Array.IndexOf(valueArray[x], "pid") != -1
+                    )
+                {
+                    
+                    count++;
+                }
+            }
+            return count;
+        }
         private static void Main(String[] Args)
         {
             string[] fileString = add_to_list("passport.txt");
-            string[,] valueArray = get_values(fileString);
+            string[][] valueArray = get_values(fileString);
+            int count = valid_count(valueArray);
+            Console.WriteLine(count);
         }
     }
 }
